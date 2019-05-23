@@ -1,17 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 class Top250Page extends StatefulWidget{
+  Top250Page({Key key}) : super(key: key);
+
   @override
-  State<StatefulWidget> createState() {
-    return _TopPageState();
-  }
+  _TopPageState createState() => new _TopPageState();
 }
 
 class _TopPageState extends State<Top250Page>{
 
+  List widgets = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    loadData();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home:  new Text('top250'),
+    return new Scaffold(
+        body: new ListView.builder(
+            itemCount: widgets.length,
+            itemBuilder: (BuildContext context, int position) {
+              return getRow(position);
+            }));
+  }
+
+  Widget getRow(int i) {
+    return new Padding(
+        padding: new EdgeInsets.all(10.0),
+        child: new Text("Row ${widgets[i]["title"]}")
     );
+  }
+
+  loadData() async {
+    String dataURL = "https://jsonplaceholder.typicode.com/posts";
+    http.Response response = await http.get(dataURL);
+    print(jsonDecode(response.body));
+    setState(() {
+      widgets = jsonDecode(response.body);
+    });
   }
 }
