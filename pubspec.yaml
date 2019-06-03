@@ -22,7 +22,7 @@ dependencies:
   #吐司
   fluttertoast: ^2.2.4
   #网络请求
-  http: '>=0.11.3+12'
+  http: ^0.12.0+2
   #解析
   json_annotation: ^2.0.0
   dio: ^2.1.6
@@ -31,7 +31,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   json_serializable: ^2.0.0
-
+  json_model: ^0.0.2
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
 

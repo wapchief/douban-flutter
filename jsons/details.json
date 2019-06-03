@@ -1,0 +1,28 @@
+{
+  "rating": "$rating",
+  "genres": [
+    "动作",
+    "科幻",
+    "冒险"
+  ],
+  "title": "哥斯拉2：怪兽之王",
+  "casts": "$[]casts",
+  "durations": [
+    "132分钟"
+  ],
+  "collect_count": 70315,
+  "mainland_pubdate": "2019-05-31",
+  "has_video": false,
+  "original_title": "Godzilla: King of the Monsters",
+  "subtype": "movie",
+  "directors": "$[]directors",
+  "pubdates": [
+    "2019-05-25(大规模点映)",
+    "2019-05-31(中国大陆)",
+    "2019-05-31(美国)"
+  ],
+  "year": "2019",
+  "images": "$image",
+  "alt": "https://movie.douban.com/subject/25890017/",
+  "id": "25890017"
+}
