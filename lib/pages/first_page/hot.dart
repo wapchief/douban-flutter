@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+//import 'package:http/http.dart' as http;
 import 'package:douban_flutter/utils/LogUtils.dart';
 import 'dart:convert';
 import 'package:douban_flutter/utils/NetUtils.dart';
@@ -11,22 +11,23 @@ class HotPage extends StatefulWidget{
 }
 
 class _HotPageState extends State<HotPage>{
-  List<Widget> widgets = [new Text("0000000"),new Text("11111111")];
+  List<Widget> widgets = [ Text("0000000"), Text("11111111")];
   String str="1111111";
+  TextStyle mStyleTilte= TextStyle(fontSize: 40.0,color:Color(0xff83cbe6));
+  Text mText = Text('哈哈哈哈哈');
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
 //      body:  new ListView(children: widgets,),
-      body: new Container(
-        decoration: new BoxDecoration(color: Colors.blue),
-        child: new Column(
+      body: Container(
+        child: Column(
           children:[
-            new Text("Column-纵向布局"), 
-            new Column(children:<Widget> [new Text('11111'),new Text('22222')],),
-            new Text("Row-横向布局"),
-            new Row(children: <Widget>[new Text("1111"),new Text("2222")],),
-            new Text("Stack-重叠布局"),
-            new Stack(children: <Widget>[new Text('1111'),new Text("2222")],)
+            Text("Column-纵向布局"),
+            Column(children:<Widget> [Text('11111',style: mStyleTilte,),Text('22222')],),
+            Text("Row-横向布局"),
+            Row(children: <Widget>[Text("1111"),Text("2222")],),
+            Text("Stack-重叠布局"),
+            Stack(children: <Widget>[mText,Text("2222")],)
             ],
         ),
       )

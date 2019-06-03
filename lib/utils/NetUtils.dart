@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
 //网络请求封装
-var dio = new Dio();
+Dio dio = new Dio();
 
 class NetUtils {
 

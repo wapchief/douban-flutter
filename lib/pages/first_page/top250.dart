@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class Top250Page extends StatefulWidget{
@@ -38,11 +37,6 @@ class _TopPageState extends State<Top250Page>{
   }
 
   loadData() async {
-    String dataURL = "https://jsonplaceholder.typicode.com/posts";
-    http.Response response = await http.get(dataURL);
-    print(jsonDecode(response.body));
-    setState(() {
-      widgets = jsonDecode(response.body);
-    });
+
   }
 }
