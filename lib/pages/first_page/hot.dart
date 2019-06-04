@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:douban_flutter/utils/LogUtils.dart';
 import 'dart:convert';
 import 'package:douban_flutter/utils/NetUtils.dart';
+import 'package:douban_flutter/models/data.dart';
 class HotPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
@@ -53,15 +54,9 @@ class _HotPageState extends State<HotPage>{
 
     try{
       var response=await NetUtils.get(hotURL,params: {});
-      print(response);
-      responseList = response['subjects'];
-      pageTotal = response['total'];
-      if (!(pageTotal is int) || pageTotal <= 0) {
-        pageTotal = 0;
-      }
-      print(responseList);
-      print(pageTotal);
-
+      var u = Data.fromJson(response);
+      print(u);
+      print(u.subjects[0].title);
     }catch(e){
       print(e.toString());
 
