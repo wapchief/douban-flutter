@@ -12,7 +12,7 @@ class HotPage extends StatefulWidget{
 }
 
 class _HotPageState extends State<HotPage>{
-  List<Widget> widgets = [ Text("0000000"), Text("11111111")];
+  List<Widget> widgets = [];
   String str="1111111";
   TextStyle mStyleTilte= TextStyle(fontSize: 40.0,color:Color(0xff83cbe6));
   Text mText = Text('哈哈哈哈哈');
@@ -20,17 +20,16 @@ class _HotPageState extends State<HotPage>{
   Widget build(BuildContext context) {
     return Scaffold(
 //      body:  new ListView(children: widgets,),
-      body: Container(
-        child: Column(
+      body: ListView(
           children:[
-            Text("Column-纵向布局"),
-            Column(children:<Widget> [Text('11111',style: mStyleTilte,),Text('22222')],),
-            Text("Row-横向布局"),
-            Row(children: <Widget>[Text("1111"),Text("2222")],),
-            Text("Stack-重叠布局"),
-            Stack(children: <Widget>[mText,Text("2222")],)
+//            Text("Column-纵向布局"),
+//            Column(children:<Widget> [Text('11111',style: mStyleTilte,),Text('22222')],),
+//            Text("Row-横向布局"),
+//            Row(children: <Widget>[Text("1111"),Text("2222")],),
+//            Text("Stack-重叠布局"),
+//            Stack(children: <Widget>[mText,Text("2222")],),
+            Column(children: widgets,)
             ],
-        ),
       )
 
     );
@@ -46,17 +45,20 @@ class _HotPageState extends State<HotPage>{
   //获取列表
   _getHotList() async{
     String hotURL="http://douban.uieee.com/v2/movie/in_theaters";
-//    http.Response response = await http.get(hotURL);
-//    print(response.body);
-//    Map<String, dynamic> data = json.decode(response.body);
-    var responseList = [];
-    var  pageTotal = 0;
 
     try{
       var response=await NetUtils.get(hotURL,params: {});
       var u = Data.fromJson(response);
       print(u);
       print(u.subjects[0].title);
+      //渲染数据
+    for(var item in u.subjects){
+       widgets.add(new Column(children: <Widget>[new Row(children: <Widget>[Image.network(item.images.large,width: 90,height: 160,),new Text(item.title)],)],));
+    }
+    //更新view
+    setState(() {
+      widgets=widgets;
+    });
     }catch(e){
       print(e.toString());
 
