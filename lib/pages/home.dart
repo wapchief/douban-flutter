@@ -36,8 +36,8 @@ class _MyHomePageState extends State<AppPage>{
     }
     list
       ..add(HotPage())
-      ..add(MePage())
-      ..add(Top250Page());
+      ..add(Top250Page())
+      ..add(MePage());
   }
 
 //  void onWidgetTap(WidgetPoint widgetPoint, BuildContext context) {

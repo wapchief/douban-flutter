@@ -13,6 +13,10 @@ class _MePageState extends State<MePage>{
   Widget build(BuildContext context) {
     return new MaterialApp(
       home:  new Text('me'),
+      theme: ThemeData(
+        primarySwatch: Colors.blue
+      ),
+
     );
   }
 }

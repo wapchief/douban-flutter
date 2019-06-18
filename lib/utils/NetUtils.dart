@@ -1,8 +1,13 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
+
+BaseOptions options=new BaseOptions(
+    baseUrl: '',
+    headers: {},
+    );
 //网络请求封装
 Dio dio = new Dio();
-
+Map<String, dynamic> headers;
 class NetUtils {
 
   static Future get(String url,{Map<String,dynamic> params}) async{
